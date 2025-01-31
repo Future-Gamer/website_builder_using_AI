@@ -1,12 +1,12 @@
 import os
-from dotenv import load_values
+from dotenv import dotenv_values
 
-values=load_values()
+values=dotenv_values()
 
-key=os.values['API_KEY']
+key=values['API_KEY']
 
 from typing import List
-from mistralai import Messages, Mistral
+from mistralai import ChatCompletionResponse, Messages, Mistral, SystemMessage
 
 api_key = key
 client = Mistral(api_key=api_key)
@@ -49,15 +49,40 @@ Notes:
 13. Generate COMPLETE web pages. DO NOT, UNDER ANY CIRCUMSTANCES, omit anything. NEVER USE ANY PLACEHOLDERS.
 """
 
-messages:List[Messages]=[]
+def lister_prompt():
+    return "You are WebAI. You are designed as the world's best web designer and creator. You interpret user requests and use them to generate beautiful websites, responsive websites.\n\nList all of the pages that will needed to make the website. List them in a format similar to `/index.html - [Home Page]`. DO NOT generate anything else."
 
-response = client.chat.complete(
-    model=model,
-    messages=messages,
-)
+def builder_prompt(name="",description="",themes="",colors="",pages=""):
+    return f"{system_base}\n\nName: {name}\n\nDescription: {description}\n\nThemes: {themes}\n\nColors: {colors}\n\nPages:\n{pages}"
 
-print(
-    f"""
-{response.choices[0].message.content}
-"""
-)
+def get_list_of_pages(prompt:str):
+    res:ChatCompletionResponse=client.chat.complete(
+        model=model,
+        messages=[
+            {
+                "role": "system",
+                "content": lister_prompt(),
+            },
+            {
+                "role": "user",
+                "content": prompt,
+            },
+        ],
+    )
+    return res.choices[0].message.content  # type: ignore
+
+def get_page_code(prompt:str, name="",description="",themes="",colors="",pages=""):
+    return client.chat.complete(
+        model=model,
+        messages=[
+            {
+                "role": "system",
+                "content": builder_prompt(name,description,themes,colors,pages),
+            },
+            {
+                "role": "user",
+                "content": f"Generate `{prompt}`",
+            }
+        ]
+    ).choices[0].message.content # type: ignore
+
