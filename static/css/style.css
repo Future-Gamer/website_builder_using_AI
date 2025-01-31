@@ -387,6 +387,10 @@ a {
   transition: 0.25s ease;
 }
 
+.price-container{
+  display: flex;
+}
+
 .tile:hover {
   transform: translateY(-5px);
 }
