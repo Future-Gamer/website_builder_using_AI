@@ -1,5 +1,3 @@
-// --------------------------------------------- Login Page JS ------------------------------------------------------
-
 document.addEventListener("DOMContentLoaded", function () {
     const emailInput = document.getElementById("email");
     const passwordInput = document.getElementById("password");
