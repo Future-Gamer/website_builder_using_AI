@@ -5,70 +5,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web AI</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style1.css">
 </head>
 
 <body>
 
     <div class="login-container">
         <div class="logo-title">
-            <img src="logo.png" alt="AI Builder Logo">
-            <h2>Web AI</h2>
+            <img src="web_ai_logo(no_text).jpeg" alt="AI Builder Logo">
         </div>
 
         <div class="login-box">
             <div class="login-left">
                 <h3>Sign Up</h3>
+                <div class="ll">
+                    <!-- Username Input Section-->
+                    <div class="login-left-user">
+                        <label for="username">Username</label><br>
+                        <input type="email" id="email" placeholder="Enter your Username"><br>
 
-                <!-- Username Input Section-->
-                <label for="username">Username</label>
-                <input type="email" id="email" placeholder="Enter your Username">
+                        <!-- Email Input Section -->
+                        <label for="email">Email</label><br>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
 
-                <!-- Email Input Section -->
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter your email">
+                    <div class="login-left-user">
+                    <!-- Password Input Section -->
+                        <label for="password">Password</label><br>
+                        <input type="password" id="password" placeholder="Enter your password"><br>
 
-                <!-- Password Input Section -->
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your password">
+                        <label for="password">Confirm Password</label><br>
+                        <input type="password" id="password" placeholder="Confirm your password">
+                    </div>
+                </div>
 
-                <p>Already have an account?</p>
-                <p>Don't have an account? <a href="index.html">Login</a></p>
-
-                <button id="email-login">Continue with Email →</button>
+                <div class="or-container">
+                    <div class="line"></div>
+                    <span class="or-text">or</span>
+                    <div class="line"></div>
+                </div>
             </div>
 
-            <div class="or-container">
-                <div class="line"></div>
-                <span class="or-text">or</span>
-                <div class="line"></div>
-            </div>
-
-            <div class="login-right">
-                <button class="social-login google">
-                    <div class="icon-container">
-                        <img src="google-icon.png" alt="Google Icon">
+            <div class="login-left">
+                <div class="ll">
+                    <div class="login-left-user">
+                        <button class="social-login google">
+                            <div class="icon-container">
+                                <img src="google-icon.png" alt="Google Icon">
+                            </div>
+                            <span>Continue with Google</span>
+                        </button>
                     </div>
-                    <span>Continue with Google</span>
-                </button>
-                <button class="social-login facebook">
-                    <div class="icon-container">
-                        <img src="facebook-icon.png" alt="Facebook Icon">
+                    <div class="login-left-user">
+                        <button class="social-login facebook">
+                            <div class="icon-container">
+                                <img src="facebook-icon.png" alt="Facebook Icon">
+                            </div>
+                            <span>Continue with Facebook</span>
+                        </button>
                     </div>
-                    <span>Continue with Facebook</span>
-                </button>
+                </div>
                 <button class="social-login apple">
                     <div class="icon-container">
                         <img src="apple-icon.png" alt="Apple Icon">
                     </div>
                     <span>Continue with Apple</span>
-                </button>
-                <a href="#" class="sso">Continue with SSO</a>
+                    </button>
             </div>
-        </div>
 
-        <div class="footer">
-            <p><a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
+            <p>Already have an account? <a href="index.html">Login</a></p>
+            <div class="footer">
+                <p><a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
+            </div>
         </div>
     </div>
 
