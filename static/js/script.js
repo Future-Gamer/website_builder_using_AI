@@ -43,26 +43,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // --------------------------------------------------------- ------------------------------
 
-// JavaScript to handle expanding the message box and maintaining its state
-
-const messageBox = document.getElementById('messageBox');
-const messageInput = document.getElementById('messageInput');
-const sendButton = document.getElementById('sendButton');
-
-// Expand the message box when clicked
-messageInput.addEventListener('focus', function () {
-    messageBox.classList.add('expanded');
-});
-
-// Keep the message box expanded after sending the message
-sendButton.addEventListener('click', function (event) {
-    event.preventDefault(); // Prevent the default form submission behavior
-
-    if (messageInput.value.trim() !== "") {
-        // Simulate sending the message (this can be replaced with actual send logic)
-        console.log("Message sent: " + messageInput.value);
-
-        // Clear the textarea, but keep the message box expanded
-        messageInput.value = "";
-        messageBox.classList.add('expanded');
-    }
