@@ -24,5 +24,9 @@ def myprojects():
 def faqs():
     return render_template('FAQs.html')
 
+@app.route('/new-website')
+def new_website():
+    return render_template('new-website.html')
+
 if(__name__=="__main__"):
     app.run(host="127.0.0.1",port=8080,debug=True)
