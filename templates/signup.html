@@ -4,83 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web AI</title>
-    <link rel="stylesheet" href="style1.css">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="/static/css/fs.css">
+    <script src="/statci/js/validation.js" defer></script>
 </head>
 
 <body>
-
-    <div class="login-container">
-        <div class="logo-title">
-            <img src="web_ai_logo(no_text).jpeg" alt="AI Builder Logo">
-        </div>
-
-        <div class="login-box">
-            <div class="login-left">
-                <h3>Sign Up</h3>
-                <div class="ll">
-                    <!-- Username Input Section-->
-                    <div class="login-left-user">
-                        <label for="username">Username</label><br>
-                        <input type="email" id="email" placeholder="Enter your Username"><br>
-
-                        <!-- Email Input Section -->
-                        <label for="email">Email</label><br>
-                        <input type="email" id="email" placeholder="Enter your email">
-                    </div>
-
-                    <div class="login-left-user">
-                    <!-- Password Input Section -->
-                        <label for="password">Password</label><br>
-                        <input type="password" id="password" placeholder="Enter your password"><br>
-
-                        <label for="password">Confirm Password</label><br>
-                        <input type="password" id="password" placeholder="Confirm your password">
-                    </div>
-                </div>
-
-                <div class="or-container">
-                    <div class="line"></div>
-                    <span class="or-text">or</span>
-                    <div class="line"></div>
-                </div>
+    <div class="box">
+        <form action="/signup" method="POST">
+            <h2>Sign Up</h2>
+            <div class="inputBox">
+                <input type="text" id="first" name="first" required>
+                <span>First Name</span>
+                <i></i>
             </div>
-
-            <div class="login-left">
-                <div class="ll">
-                    <div class="login-left-user">
-                        <button class="social-login google">
-                            <div class="icon-container">
-                                <img src="google-icon.png" alt="Google Icon">
-                            </div>
-                            <span>Continue with Google</span>
-                        </button>
-                    </div>
-                    <div class="login-left-user">
-                        <button class="social-login facebook">
-                            <div class="icon-container">
-                                <img src="facebook-icon.png" alt="Facebook Icon">
-                            </div>
-                            <span>Continue with Facebook</span>
-                        </button>
-                    </div>
-                </div>
-                <button class="social-login apple">
-                    <div class="icon-container">
-                        <img src="apple-icon.png" alt="Apple Icon">
-                    </div>
-                    <span>Continue with Apple</span>
-                    </button>
+            <div class="inputBox">
+                <input type="text" id="last" name="last" required>
+                <span>Last Name</span>
+                <i></i>
             </div>
-
-            <p>Already have an account? <a href="index.html">Login</a></p>
-            <div class="footer">
-                <p><a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
+            <div class="inputBox">
+                <input type="text" id="username" name="username" required>
+                <span>Username</span>
+                <i></i>
             </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+            <div class="inputBox">
+                <input type="email" id="email" name="email" required>
+                <span>Email</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="text" id="phone" name="phone" required>
+                <span>Phone Number</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="text" id="address" name="address" required>
+                <span>Address</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="password" id="password" name="password" required>
+                <span>Password</span>
+                <i></i>
+            </div>
+            <div class="gender-group">
+                <label>Gender</label>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+            </div>
+            <input type="submit" value="Register">
+        </form>
+    
 </body>
 
 </html>
