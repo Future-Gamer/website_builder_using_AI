@@ -980,6 +980,13 @@ button:focus {
   margin: 0;
   color: #ffffff;
   font-size: 15px;
+
+}
+
+.faq-question ol li {
+  margin: 0;
+  color: #ffffff;
+  font-size: 15px;
 }
 
 
@@ -995,6 +1002,7 @@ button:focus {
 
 .row {
   display: flex;
+  justify-content: center;
 }
 
 .mystyleSec {
@@ -2001,3 +2009,67 @@ a.btn {
 .btn:where(:hover, :focus) {
   color: #fff;
 }
+
+.questionnaire-container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 500px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.question-box {
+  padding: 25px;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: scale(1);
+}
+
+.hidden {
+  display: none;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  background: #28a745;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #218838;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #f3f3f3;
+}
+
+.progress {
+  width: 0%;
+  height: 10px;
+  background-color: #4caf50;

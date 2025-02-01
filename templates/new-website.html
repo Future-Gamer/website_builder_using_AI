@@ -2,119 +2,132 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Web AI</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-	<link rel="stylesheet" href="/static/css/style.css">
-
-
+    <meta charset="UTF-8">
+    <title>Web AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<!-- partial:index.partial.html -->
-	<div class="app">
-		<header class="app-header">
-			<div class="app-header-logo">
-				<div class="logo">
-					<span class="logo-icon">
-						<img src="/static/images/web_ai_logo.png" />
-					</span>
-					<!-- <h1 class="logo-title">
-						<span>Almeria</span>
-						<span>NeoBank</span>
-					</h1> -->
-				</div>
-			</div>
-			<div class="app-header-navigation">
-				<div class="tabs">
-					<a href="#" class="ai-builder active">
-						New Website
-						<i class="fa-regular fa-wand-magic-sparkles"></i>
-					</a>
-					
-					<a href="/myprojects">
-						My Projects
-					</a>
-					<a href="/plan">
-						Plans
-					</a>
-					<a href="/faqs">
-						FAQs
-					</a>
-				</div>
-			</div>
-			<div class="app-header-actions">
-				<button class="user-profile">
-					<span>Arpan Parekh</span>
-					<span>
-						<img src="/static/images/profile_icon.jpg" />
-					</span>
-				</button>
-				<div class="app-header-actions-buttons">
-					<!-- <button class="icon-button large">
-						<i class="ph-magnifying-glass"></i>
-					</button> -->
-					<button class="icon-button large">
-						<i class="ph-bell"></i>
-					</button>
-				</div>
-			</div>
-			<div class="app-header-mobile">
-				<button class="icon-button large">
-					<i class="ph-list"></i>
-				</button>
-			</div>
+    <!-- Questionnaire Section -->
+    <div class="questionnaire-container">
+        <div class="question-box" id="question1">
+            <h2>What is name of the Website?</h2>
+            <input type="text" id="answer1" placeholder="Your answer">
+            <button onclick="nextQuestion(1)">Submit</button>
+        </div>
+        <div class="question-box hidden" id="question2">
+            <h2>Describe your Website</h2>
+            <input type="text" id="answer2" placeholder="Your answer">
+            <button onclick="nextQuestion(2)">Submit</button>
+        </div>
+        <div class="question-box hidden" id="question3">
+            <h2>What are the major theams of your Website?</h2>
+            <input type="text" id="answer3" placeholder="Your answer">
+            <button onclick="nextQuestion(3)">Submit</button>
+        </div>
+        <div class="question-box hidden" id="question4">
+            <h2>What are some colors that you would like to use in your website?</h2>
+            <input type="text" id="answer4" placeholder="Your answer">
+            <button onclick="nextQuestion(4)">Submit</button>
+        </div>
+        <div class="question-box hidden" id="question5">
+            <h2 id="ai_ques">Loading...</h2>
+            <input type="text" id="answer5" placeholder="Your answer">
+            <button onclick="nextQuestion(5)">Submit</button>
+        </div>
+        <!-- <div class="question-box hidden" id="question6">
+            <h2>Question 6</h2>
+            <input type="text" id="answer6" placeholder="Your answer">
+            <button onclick="nextQuestion(6)">Submit</button>
+        </div>
+        <div class="question-box hidden" id="congrats">
+            <h2>Congratulations!</h2>
+            <p>You have completed the quiz!</p>
+        </div> -->
+    </div>
 
-		</header>
+    <!-- Original Content Section -->
+    <div class="app" id="appContent">
+        <header class="app-header">
+            <div class="app-header-logo">
+                <div class="logo">
+                    <span class="logo-icon">
+                        <img src="/static/images/web_ai_logo.png" />
+                    </span>
+                </div>
+            </div>
+            <div class="app-header-navigation">
+                <div class="tabs">
+                    <a href="#" class="ai-builder active">
+                        New Website
+                        <i class="fa-regular fa-wand-magic-sparkles"></i>
+                    </a>
+                    <a href="/myprojects">My Projects</a>
+                    <a href="/plan">Plans</a>
+                    <a href="/faqs">FAQs</a>
+                </div>
+            </div>
+            <div class="app-header-actions">
+                <button class="user-profile">
+                    <span>Arpan Parekh</span>
+                    <span>
+                        <img src="/static/images/profile_icon.jpg" />
+                    </span>
+                </button>
+                <div class="app-header-actions-buttons">
+                    <button class="icon-button large">
+                        <i class="ph-bell"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="app-header-mobile">
+                <button class="icon-button large">
+                    <i class="ph-list"></i>
+                </button>
+            </div>
+        </header>
 
-		<main class="app-main">
-			<div class="prompt-box">
-				<!-- From Uiverse.io by vinodjangid07 -->
-				<div class="messageBox">
-					<div class="fileUploadWrapper">
-						<label for="file">
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 337 337">
-								<circle stroke-width="20" stroke="#6c6c6c" fill="none" r="158.5" cy="168.5" cx="168.5">
-								</circle>
-								<path stroke-linecap="round" stroke-width="25" stroke="#6c6c6c" d="M167.759 79V259">
-								</path>
-								<path stroke-linecap="round" stroke-width="25" stroke="#6c6c6c" d="M79 167.138H259">
-								</path>
-							</svg>
-							<span class="tooltip">Add an image</span>
-						</label>
-						<input type="file" id="file" name="file" />
-					</div>
-					<textarea required="" placeholder="Message..." id="messageInput"></textarea>
-					<!-- <input required="" placeholder="Message..." type="text" id="messageInput" /> -->
-					<button id="sendButton">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 664 663">
-							<path fill="none"
-								d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888">
-							</path>
-							<path stroke-linejoin="round" stroke-linecap="round" stroke-width="33.67" stroke="#6c6c6c"
-								d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888">
-							</path>
-						</svg>
-					</button>
-				</div>
+        <main class="app-main">
+            <div class="prompt-box">
+                
+            </div>
+        </main>
 
-			</div>
-		</main>
+        <footer class="footer">
+            <div>
+                Web AI ©<br />All Rights Reserved 2021
+            </div>
+        </footer>
+    </div>
 
-		<footer class="footer">
-			<div>
-				Web AI ©<br />
-				All Rights Reserved 2021
-			</div>
-		</footer>
-	</div>
-
-	</div>
-	<!-- partial -->
-	<script src='https://unpkg.com/phosphor-icons'></script>
-	<script src="/static/js/script.js"></script>
-
+    <script>
+        function nextQuestion(questionNumber) {
+			console.log(questionNumber);
+			if(questionNumber!=5) {
+            	document.getElementById('question' + questionNumber).classList.add('hidden');
+			} else {
+				fetch("/gen-list",{
+					method: "POST",
+					headers: {"Content-Type": "application/json"},
+					body: JSON.stringify({
+						"name": document.getElementById("answer1").value,
+						"desc": document.getElementById("answer2").value
+					})
+				}).then(res => {
+					document.getElementById("ai_ques").innerText=res;
+				})
+			}
+            if (questionNumber < 5) {
+				
+                document.getElementById('question' + (questionNumber + 1)).classList.remove('hidden');
+            
+            }
+        }
+    </script>
+    <script src='https://unpkg.com/phosphor-icons'></script>
+    <script src="/static/js/script.js"></script>
 </body>
 
 </html>

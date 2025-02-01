@@ -4,6 +4,8 @@ from sqlalchemy import Column, Integer, String, DateTime, func
 import sqlite3
 from functools import wraps
 
+from ai import get_list_of_pages
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
@@ -82,6 +84,18 @@ def new_website():
 def logout():
     session.pop('username', None)
     return redirect(url_for('hello'))
+
+@app.route('/gen-list',methods=["POST"])
+def gen_list():
+    str1= f"""You are WebAI. You are designed as the world's best web designer and creator. You interpret user requests and use them to generate beatiful, responsive websites.
+List all the pages that will be needed to make the website. List them in a format similar to `/index.html - [Home Page]`. DO NOT generate anything else.
+
+Website Name: {request.form['name']}
+Website Description: {request.form['desc']}
+"""
+    str1=get_list_of_pages(str1)
+    print(str1)
+    return str(str1)
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8080, debug=True)

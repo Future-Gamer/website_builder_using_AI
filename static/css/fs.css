@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(/main/Images/10_years_ago__2009_by_thekingblader995_ddnbut6-pre.jpg);
+    background: grey;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -18,7 +18,7 @@ body {
 .box {
     position: relative;
     width: 400px;
-    height: 800px;
+    height: 550px;
     background: #1c1c1c;
     border-radius: 50px 5px;
     overflow: hidden;
@@ -32,7 +32,7 @@ body {
     left: -50%;
     width: 350px;
     height: 550px;
-    background: linear-gradient(60deg, transparent, #45f3ff, #45f3ff);
+    /* background: linear-gradient(60deg, transparent, #45f3ff, #45f3ff); */
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
     opacity: .7;
@@ -45,22 +45,13 @@ body {
     left: -50%;
     width: 350px;
     height: 550px;
-    background: linear-gradient(60deg, transparent, #d9138a, #d913d9);
+    /* background: linear-gradient(60deg, transparent, #d9138a, #d913d9); */
     transform-origin: bottom right;
-    animation: animate 6s linear infinite;
-    animation-delay: -3s;
+    /* animation: animate 6s linear infinite; */
+    /* animation-delay: -3s; */
     opacity: .7;
 }
 
-@keyframes animate {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
 
 form {
     position: absolute;
