@@ -1,8 +1,6 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Text, Float, create_engine, true
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Text, Float, create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
-from sqlalchemy.orm import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import relationship, sessionmaker
 
 engine = create_engine('sqlite:///users.db')
 
@@ -14,23 +12,22 @@ class UserProfile(Base):
     __tablename__ = 'user_profiles'
     
     profile_id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, primary_key=True, nullable=False)
-    username = Column(String, primary_key=True)
+    user_id = Column(Integer, ForeignKey('users.user_id'), nullable=False)
     first_name = Column(String)
     last_name = Column(String)
-    email = Column(String, primary_key=True)
+    email = Column(String, nullable=False)
     phone = Column(String)
     address = Column(String)
-    password = Column(String, primary_key=True)
+    password = Column(String, nullable=False)
     confirm_password = Column(String)
 
-    
+    user = relationship("User", back_populates="profiles")
 
 # Users Table
 class User(Base):
     __tablename__ = 'users'
     
-    user_id = Column(Integer, ForeignKey('user_profiles.user_id'))
+    user_id = Column(Integer, primary_key=True)
     username = Column(String, nullable=False)
     email = Column(String, nullable=False)
     password = Column(String, nullable=False)
@@ -40,9 +37,6 @@ class User(Base):
     websites = relationship("Website", back_populates="user")
     ai_generated_contents = relationship("AIGeneratedContent", back_populates="user")
     customization_settings = relationship("CustomizationSetting", back_populates="user")
-    
-    user = relationship("UserProfile", back_populates="profiles")
-
 
 # Templates Table
 class Template(Base):
@@ -159,7 +153,7 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 # Create new users
-# new_user = Users_Profile(first_name='Arpan', last_name='Parekh', phone=6352307232, address='B-21, Rutuvilla Duplex, Tarsali, Vadodara')
+# new_user = UserProfile(user_id=1, email='example@example.com', password='password')
 
 # Add new users to the session
 # session.add(new_user)
