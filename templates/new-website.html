@@ -2,42 +2,42 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Web AI</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<title>Web AI</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+	<link rel="stylesheet" href="/static/css/style.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Questionnaire Section -->
-    <div class="questionnaire-container">
-        <div class="question-box" id="question1">
-            <h2>What is name of the Website?</h2>
-            <input type="text" id="answer1" placeholder="Your answer">
-            <button onclick="nextQuestion(1)">Submit</button>
-        </div>
-        <div class="question-box hidden" id="question2">
-            <h2>Describe your Website</h2>
-            <input type="text" id="answer2" placeholder="Your answer">
-            <button onclick="nextQuestion(2)">Submit</button>
-        </div>
-        <div class="question-box hidden" id="question3">
-            <h2>What are the major theams of your Website?</h2>
-            <input type="text" id="answer3" placeholder="Your answer">
-            <button onclick="nextQuestion(3)">Submit</button>
-        </div>
-        <div class="question-box hidden" id="question4">
-            <h2>What are some colors that you would like to use in your website?</h2>
-            <input type="text" id="answer4" placeholder="Your answer">
-            <button onclick="nextQuestion(4)">Submit</button>
-        </div>
-        <div class="question-box hidden" id="question5">
-            <h2 id="ai_ques">Loading...</h2>
-            <input type="text" id="answer5" placeholder="Your answer">
-            <button onclick="nextQuestion(5)">Submit</button>
-        </div>
-        <!-- <div class="question-box hidden" id="question6">
+	<!-- Questionnaire Section -->
+	<div class="questionnaire-container">
+		<div class="question-box" id="question1">
+			<h2>What is name of the Website?</h2>
+			<input type="text" id="answer1" placeholder="Your answer">
+			<button onclick="nextQuestion(1)">Submit</button>
+		</div>
+		<div class="question-box hidden" id="question2">
+			<h2>Describe your Website</h2>
+			<input type="text" id="answer2" placeholder="Your answer">
+			<button onclick="nextQuestion(2)">Submit</button>
+		</div>
+		<div class="question-box hidden" id="question3">
+			<h2>What are the major theams of your Website?</h2>
+			<input type="text" id="answer3" placeholder="Your answer">
+			<button onclick="nextQuestion(3)">Submit</button>
+		</div>
+		<div class="question-box hidden" id="question4">
+			<h2>What are some colors that you would like to use in your website?</h2>
+			<input type="text" id="answer4" placeholder="Your answer">
+			<button onclick="nextQuestion(4)">Submit</button>
+		</div>
+		<div class="question-box hidden" id="question5">
+			<h2 id="ai_ques">Loading...</h2>
+			<input type="text" id="answer5" placeholder="Your answer">
+			<button onclick="nextQuestion(5)">Submit</button>
+		</div>
+		<!-- <div class="question-box hidden" id="question6">
             <h2>Question 6</h2>
             <input type="text" id="answer6" placeholder="Your answer">
             <button onclick="nextQuestion(6)">Submit</button>
@@ -46,88 +46,114 @@
             <h2>Congratulations!</h2>
             <p>You have completed the quiz!</p>
         </div> -->
-    </div>
+	</div>
 
-    <!-- Original Content Section -->
-    <div class="app" id="appContent">
-        <header class="app-header">
-            <div class="app-header-logo">
-                <div class="logo">
-                    <span class="logo-icon">
-                        <img src="/static/images/web_ai_logo.png" />
-                    </span>
-                </div>
-            </div>
-            <div class="app-header-navigation">
-                <div class="tabs">
-                    <a href="#" class="ai-builder active">
-                        New Website
-                        <i class="fa-regular fa-wand-magic-sparkles"></i>
-                    </a>
-                    <a href="/myprojects">My Projects</a>
-                    <a href="/plan">Plans</a>
-                    <a href="/faqs">FAQs</a>
-                </div>
-            </div>
-            <div class="app-header-actions">
-                <button class="user-profile">
-                    <span>Arpan Parekh</span>
-                    <span>
-                        <img src="/static/images/profile_icon.jpg" />
-                    </span>
-                </button>
-                <div class="app-header-actions-buttons">
-                    <button class="icon-button large">
-                        <i class="ph-bell"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="app-header-mobile">
-                <button class="icon-button large">
-                    <i class="ph-list"></i>
-                </button>
-            </div>
-        </header>
+	<!-- Original Content Section -->
+	<div class="app" id="appContent">
+		<header class="app-header">
+			<div class="app-header-logo">
+				<div class="logo">
+					<span class="logo-icon">
+						<img src="/static/images/web_ai_logo.png" />
+					</span>
+				</div>
+			</div>
+			<div class="app-header-navigation">
+				<div class="tabs">
+					<a href="#" class="ai-builder active">
+						New Website
+						<i class="fa-regular fa-wand-magic-sparkles"></i>
+					</a>
+					<a href="/myprojects">My Projects</a>
+					<a href="/plan">Plans</a>
+					<a href="/faqs">FAQs</a>
+				</div>
+			</div>
+			<div class="app-header-actions">
+				<button class="user-profile">
+					<span>Arpan Parekh</span>
+					<span>
+						<img src="/static/images/profile_icon.jpg" />
+					</span>
+				</button>
+				<div class="app-header-actions-buttons">
+					<button class="icon-button large">
+						<i class="ph-bell"></i>
+					</button>
+				</div>
+			</div>
+			<div class="app-header-mobile">
+				<button class="icon-button large">
+					<i class="ph-list"></i>
+				</button>
+			</div>
+		</header>
 
-        <main class="app-main">
-            <div class="prompt-box">
-                
-            </div>
-        </main>
+		<main class="app-main">
+			<div class="prompt-box">
 
-        <footer class="footer">
-            <div>
-                Web AI ©<br />All Rights Reserved 2021
-            </div>
-        </footer>
-    </div>
+			</div>
+		</main>
 
-    <script>
-        function nextQuestion(questionNumber) {
+		<footer class="footer">
+			<div>
+				Web AI ©<br />All Rights Reserved 2021
+			</div>
+		</footer>
+	</div>
+
+	<script>
+		let pages = "";
+		function nextQuestion(questionNumber) {
 			console.log(questionNumber);
-			if(questionNumber!=5) {
-            	document.getElementById('question' + questionNumber).classList.add('hidden');
-			} else {
-				fetch("/gen-list",{
-					method: "POST",
-					headers: {"Content-Type": "application/json"},
-					body: JSON.stringify({
-						"name": document.getElementById("answer1").value,
-						"desc": document.getElementById("answer2").value
+			if (questionNumber != 5) {
+				document.getElementById('question' + questionNumber).classList.add('hidden');
+			} if (questionNumber == 4) {
+				console.log("Sending request...");
+
+				const options = {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+					body: new URLSearchParams({ name: 'The Royal', desc: 'Cruise Booking site' })
+				};
+
+				fetch('/gen-list', options)
+					.then(response => {
+						response.text().then(function (text) {
+							pages = text;
+							document.getElementById("ai_ques").innerText = text;
+							document.getElementById("ai_ques").innerText += "\nWhich page do you want to render now?"
+						});
 					})
-				}).then(res => {
-					document.getElementById("ai_ques").innerText=res;
-				})
+					.catch(err => console.error(err));
 			}
-            if (questionNumber < 5) {
-				
-                document.getElementById('question' + (questionNumber + 1)).classList.remove('hidden');
-            
-            }
-        }
-    </script>
-    <script src='https://unpkg.com/phosphor-icons'></script>
-    <script src="/static/js/script.js"></script>
+			if (questionNumber == 5) {
+				console.log("Generating page...");
+
+				const options = {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+					body: new URLSearchParams({ prompt: document.getElementById("answer5"), description: document.getElementById("answer2"), themes: document.getElementById("answer3"), colors: document.getElementById("answer4"), pages: text })
+				};
+
+				fetch('/gen-page', options)
+					.then(response => {
+						response.text().then(function (text) {
+							document.getElementById("ai_ques").innerText = text;
+							document.getElementById("ai_ques").innerText += "\nWhich page do you want to render now?"
+						});
+					})
+					.catch(err => console.error(err));
+			}
+			if (questionNumber < 5) {
+
+				document.getElementById('question' + (questionNumber + 1)).classList.remove('hidden');
+
+			}
+		}
+	</script>
+	<script src='https://unpkg.com/phosphor-icons'></script>
+	<script src="/static/js/script.js"></script>
 </body>
 
 </html>

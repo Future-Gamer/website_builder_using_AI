@@ -52,8 +52,8 @@ Notes:
 def lister_prompt():
     return "You are WebAI. You are designed as the world's best web designer and creator. You interpret user requests and use them to generate beautiful websites, responsive websites.\n\nList all of the pages that will needed to make the website. List them in a format similar to `/index.html - [Home Page]`. DO NOT generate anything else."
 
-def builder_prompt(name="",description="",themes="",colors="",pages=""):
-    return f"{system_base}\n\nName: {name}\n\nDescription: {description}\n\nThemes: {themes}\n\nColors: {colors}\n\nPages:\n{pages}"
+def builder_prompt(description="",themes="",colors="",pages=""):
+    return f"{system_base}\n\nName and Description: {description}\n\nThemes: {themes}\n\nColors: {colors}\n\nPages:\n{pages}"
 
 def get_list_of_pages(prompt:str):
     res:ChatCompletionResponse=client.chat.complete(
@@ -71,13 +71,13 @@ def get_list_of_pages(prompt:str):
     )
     return res.choices[0].message.content  # type: ignore
 
-def get_page_code(prompt:str, name="",description="",themes="",colors="",pages=""):
+def get_page_code(prompt:str,description="",themes="",colors="",pages=""):
     return client.chat.complete(
         model=model,
         messages=[
             {
                 "role": "system",
-                "content": builder_prompt(name,description,themes,colors,pages),
+                "content": builder_prompt(description,themes,colors,pages),
             },
             {
                 "role": "user",

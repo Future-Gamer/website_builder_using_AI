@@ -4,7 +4,7 @@ from sqlalchemy import Column, Integer, String, DateTime, func
 import sqlite3
 from functools import wraps
 
-from ai import get_list_of_pages
+from ai import get_list_of_pages, get_page_code
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
@@ -96,6 +96,10 @@ Website Description: {request.form['desc']}
     str1=get_list_of_pages(str1)
     print(str1)
     return str(str1)
+
+@app.route("/gen-page",methods=["POST"])
+def gen_page():
+    return str(get_page_code(request.form['prompt'],request.form['description'],request.form['themes'],request.form['colors'],request.form['pages']))
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8080, debug=True)
