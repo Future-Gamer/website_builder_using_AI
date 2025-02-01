@@ -1,10 +1,11 @@
-from functools import wraps
 from flask import Flask, render_template, request, session, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, DateTime, func
+import sqlite3
+from functools import wraps
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'  # Update the database URI
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
 app.secret_key = "asd"
 
@@ -38,7 +39,12 @@ def login():
     username = request.form['username']
     password = request.form['password']
     
-    user = User.query.filter_by(username=username, password=password).first()
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    
+    # Execute query to check for user
+    c.execute('SELECT * FROM users WHERE username = ? AND password = ?', (username, password))
+    user = c.fetchone()
     
     if user:
         session['username'] = username
@@ -78,8 +84,4 @@ def logout():
     return redirect(url_for('hello'))
 
 if __name__ == "__main__":
-    # Create the database and tables
-    with app.app_context():
-        db.create_all()
-    
     app.run(host="127.0.0.1", port=8080, debug=True)
