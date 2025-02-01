@@ -90,9 +90,7 @@
 		</header>
 
 		<main class="app-main">
-			<div class="prompt-box">
-
-			</div>
+			<iframe id="frame"></iframe>
 		</main>
 
 		<footer class="footer">
@@ -123,6 +121,29 @@
 							pages = text;
 							document.getElementById("ai_ques").innerText = text;
 							document.getElementById("ai_ques").innerText += "\nWhich page do you want to render now?"
+						});
+					})
+					.catch(err => console.error(err));
+			}
+			if (questionNumber == 5) {
+				console.log("Generating page...");
+
+				const options = {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+					body: new URLSearchParams({
+						prompt: document.getElementById("answer5").value,
+						description: document.getElementById("answer2").value,
+						themes: document.getElementById("answer3").value,
+						colors: document.getElementById("answer4").value,
+						pages: pages
+					})
+				};
+
+				fetch('/gen-page', options)
+					.then(response => {
+						response.text().then(function (text) {
+							document.getElementById("frame").contentWindow.document.write(text);
 						});
 					})
 					.catch(err => console.error(err));
